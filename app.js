@@ -25,9 +25,9 @@ function isPalindrome(str)
 
 var date =
 {
-    day:2,
-    month:04,
-    year:1994
+    day:20,
+    month:02,
+    year:2002
 }
 
 
@@ -75,7 +75,92 @@ function getAllDateFormats()
     return[ddmmyy,mmddyy,yymmdd,ddmmyyyy,mmddyyyy,yyyymmdd];
 }
 
-console.log(getAllDateFormats(date));
-console.log(convertDateToString(date));
-console.log(isPalindrome("oppo"));
-console.log(isPalindrome("242"));
+function checkPalindrome(date)
+{
+    var listOfDates=getAllDateFormats(date);
+
+    flag=false;
+    for(var i=0;i<listOfDates.length;i++)
+    {
+        if(isPalindrome(listOfDates[i]))
+        {
+            flag=true;
+            break;
+        }
+
+    }
+    return flag;
+}
+
+function leapYear(year)
+{
+    if(year%400===0)
+    {
+        return true;
+    }
+    if(year%100 ===0)
+    {
+        return false;
+    }
+    if(year%4===0)
+    {
+        return true;
+    }
+
+    return false;
+}
+;
+function getNextDate(date)
+{
+    var day= date.day+1;
+    var month=date.month;
+    var year=date.year;
+
+    var daysInMonth=[31,28,31,30,31,30,31,31,30,31,30,31];
+
+
+
+    if(month===2)
+    {
+        if(leapYear(year))
+        {
+            if(day>29)
+            {
+                day=1;
+                month++;
+            }
+            
+        }
+        else
+        {
+            if(day>28)
+            {
+                day=1;
+                month++;
+            }
+        }
+
+    }
+    else
+    {
+        if(day>daysInMonth[month-1])
+        {
+            day=1;
+            month++;
+        }
+    }
+
+    if(month>12)
+    {
+        month=1;
+        year++;
+    }
+
+    return
+    {
+        day:day;
+        month:month;
+        year:year
+
+    };
+}
