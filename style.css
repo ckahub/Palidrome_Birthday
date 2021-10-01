@@ -1,8 +1,41 @@
+:root{
+    --primary-dark: #02220a;
+    --primary-red:#d7ec1a;
+
+}
+
 body{
+    background-color: var(--primary-dark);
+    color:  var(--primary-red);
+    }
+
+h1{
     text-align: center;
 }
 
-label{
+.container{
+    width: 50%;
+    margin:auto;
+}
+
+input,label{
+    
     display: block;
-    padding: 1rem;
+}
+
+input{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+#show_btn{
+    
+    margin-top: 1rem;
+    margin: auto;
+    background: transparent;
+    color: var(--primary-red);
+    border-color: var(--primary-dark);
+    border-width: medium;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
 }
