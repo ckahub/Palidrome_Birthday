@@ -202,7 +202,7 @@ function result(e)
         else
         {
             [ount,nextDate]=getNextPalindromeDate(date);
-            palindrome.innerText= `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${count} days!`
+            palindromeResult.innerText= `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${count} days!`
         }
     }
 
