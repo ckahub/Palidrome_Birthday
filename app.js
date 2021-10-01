@@ -109,7 +109,6 @@ function leapYear(year)
 
     return false;
 }
-;
 function getNextDate(date)
 {
     var day= date.day+1;
@@ -156,11 +155,13 @@ function getNextDate(date)
         year++;
     }
 
-    return
-    {
-        day:day;
-        month:month;
-        year:year
-
-    };
+    return{
+        day: day,
+        month:month,
+        year: year
+    }
 }
+
+
+
+console.log(getNextDate(date));
