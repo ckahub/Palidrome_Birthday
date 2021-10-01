@@ -2,7 +2,6 @@ const b_date=document.querySelector("#birthday_input");
 const btn= document.querySelector("#btn_show");
 const palindromeResult =document.querySelector("#result");
 
-// btn.addEventListener("click",result)
 
 
 function reverseStr(str)
@@ -21,13 +20,6 @@ function isPalindrome(str)
     var reverse=reverseStr(str);
     return str===reverse;   
       
-}
-
-var date =
-{
-    day:20,
-    month:02,
-    year:2002
 }
 
 
@@ -165,3 +157,53 @@ function getNextDate(date)
 
 
 console.log(getNextDate(date));
+
+function getNextPalindromeDate(date)
+{
+    var count=0;
+    var nextDate=getNextDate(date);
+
+    while(1)
+    {
+        count++;
+        var palindrome= checkPalindrome(nextDate);
+        if(palindrome)
+        {
+            break;
+        }
+        else
+        {
+            nextDate=getNextDate(nextDate);
+        }
+
+        return [count,nextDate];
+    }
+}
+
+btn.addEventListener("click",result);
+
+function result(e)
+{   
+    var bdayStr= b_date.value;
+    if(bdayStr!=='')
+    {
+        var listOfDate=bdayStr.split('-');
+        var date={
+            day=Number(listOfDate[2]),
+            month=Number(listOfDate[1]),
+            year=Number(listOfDate[0])
+        };
+
+        var palindromeOrNot= isPalindrome(date);
+        if(palindromeOrNot)
+        {
+            palindromeResult.innerText= "Yay Your bday is palindrome!!"
+        }
+        else
+        {
+            [ount,nextDate]=getNextPalindromeDate(date);
+            palindrome.innerText= `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${count} days!`
+        }
+    }
+
+}
