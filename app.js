@@ -189,9 +189,9 @@ function result(e)
     {
         var listOfDate=bdayStr.split('-');
         var date={
-            day=Number(listOfDate[2]),
-            month=Number(listOfDate[1]),
-            year=Number(listOfDate[0])
+            day:Number(listOfDate[2]),
+            month:Number(listOfDate[1]),
+            year:Number(listOfDate[0])
         };
 
         var palindromeOrNot= isPalindrome(date);
@@ -201,7 +201,7 @@ function result(e)
         }
         else
         {
-            [ount,nextDate]=getNextPalindromeDate(date);
+            [count,nextDate]=getNextPalindromeDate(date);
             palindromeResult.innerText= `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${count} days!`
         }
     }
